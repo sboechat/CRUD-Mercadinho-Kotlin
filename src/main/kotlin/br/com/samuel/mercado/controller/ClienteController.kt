@@ -15,17 +15,17 @@ class ClienteController(
     @Autowired private val clienteService: ClienteService
     ){
 
-    @GetMapping
-    fun getClienteByCpf(@RequestBody cpf: String): ClienteDto{
+    @GetMapping("/{cpf}")
+    fun getClienteByCpf(@RequestBody @PathVariable cpf: String): ClienteDto{
         return clienteService.getClienteByCpf(cpf)
     }
 
-    @GetMapping
-    fun getClienteById(@RequestBody id: UUID): ClienteDto{
+    @GetMapping("/{id}")
+    fun getClienteById(@RequestBody @PathVariable id: UUID): ClienteDto{
         return clienteService.getClienteById(id)
     }
 
-    @GetMapping
+    @GetMapping("/todos")
     fun getTodosClientes(): List<ClienteDto>{
         return clienteService.getTodosClientes()
     }

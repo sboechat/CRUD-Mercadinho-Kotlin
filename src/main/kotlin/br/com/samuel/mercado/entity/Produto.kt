@@ -1,5 +1,6 @@
 package br.com.samuel.mercado.entity
 
+import br.com.samuel.mercado.dto.ProdutoDto
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
@@ -16,7 +17,11 @@ class Produto {
 
     var nome: String = ""
 
-    var codigoDeBarras: Long = 0
+    var codigoDeBarras: String = ""
 
-    var valor: Float = 0f;
+    var valor: Float = 0f
+
+    fun toDto(): ProdutoDto{
+        return ProdutoDto(id = this.id, nome = this.nome, codigoDeBarras = this.codigoDeBarras, valor = this.valor)
+    }
 }

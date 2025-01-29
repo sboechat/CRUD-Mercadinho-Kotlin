@@ -2,6 +2,7 @@ package br.com.samuel.mercado.entity
 
 import jakarta.persistence.*
 import org.hibernate.annotations.UuidGenerator
+import java.time.OffsetDateTime
 import java.util.UUID
 
 @Table(name = "nota_fiscal")
@@ -18,4 +19,7 @@ class NotaFiscal {
 
     @OneToMany(mappedBy = "notaFiscal", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     var produtos: MutableList<ListaProduto> = mutableListOf()
+
+    var dataCriacao: OffsetDateTime = OffsetDateTime.now()
+
 }
