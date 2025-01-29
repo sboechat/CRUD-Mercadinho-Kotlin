@@ -1,5 +1,6 @@
 package br.com.samuel.mercado.entity
 
+import br.com.samuel.mercado.dto.NotaFiscalDto
 import jakarta.persistence.*
 import org.hibernate.annotations.UuidGenerator
 import java.time.OffsetDateTime
@@ -14,7 +15,7 @@ class NotaFiscal {
     val id: UUID = UUID.randomUUID()
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
+    @JoinColumn(name = "cliente_id")
     var idCliente: Cliente? = null
 
     @OneToMany(mappedBy = "notaFiscal", cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
@@ -22,4 +23,7 @@ class NotaFiscal {
 
     var dataCriacao: OffsetDateTime = OffsetDateTime.now()
 
+    fun toDto(): NotaFiscalDto{
+        return NotaFiscalDto(id = this.id, idCliente = this.idCliente, produtos = this.produtos, dataCriacao = this.dataCriacao)
+    }
 }
