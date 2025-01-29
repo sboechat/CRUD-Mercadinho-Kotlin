@@ -16,12 +16,12 @@ class ClienteController(
     ){
 
     @GetMapping("/{cpf}")
-    fun getClienteByCpf(@RequestBody @PathVariable cpf: String): ClienteDto{
+    fun getClienteByCpf(@PathVariable cpf: String): ClienteDto{
         return clienteService.getClienteByCpf(cpf)
     }
 
     @GetMapping("/{id}")
-    fun getClienteById(@RequestBody @PathVariable id: UUID): ClienteDto{
+    fun getClienteById(@PathVariable id: UUID): ClienteDto{
         return clienteService.getClienteById(id)
     }
 
