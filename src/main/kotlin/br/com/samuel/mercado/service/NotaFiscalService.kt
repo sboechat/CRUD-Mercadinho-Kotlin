@@ -36,7 +36,7 @@ class NotaFiscalService(
             notaFiscal.produtos = notaFiscalDto.produtos
             notaFiscalRepository.save(notaFiscal)
         } catch (e: Exception) {
-            throw RuntimeException("Erro ao atualizar nota fiscal: ${e.message}", e)
+            throw RuntimeException("Erro ao adicionar nota fiscal: ${e.message}", e)
         }
     }
 
