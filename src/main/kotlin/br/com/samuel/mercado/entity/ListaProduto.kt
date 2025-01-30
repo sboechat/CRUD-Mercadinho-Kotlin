@@ -1,5 +1,6 @@
 package br.com.samuel.mercado.entity
 
+import br.com.samuel.mercado.dto.ListaProdutoDto
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
@@ -27,4 +28,8 @@ class ListaProduto {
 
     @Column(name = "quantidade_produto")
     var quantidadeProduto: Int = 0
+
+    fun toDto(): ListaProdutoDto{
+        return ListaProdutoDto(id = this.id, notaFiscal = this.notaFiscal, produto = this.produto, quantidadeProduto = this.quantidadeProduto)
+    }
 }

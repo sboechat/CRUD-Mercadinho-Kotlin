@@ -37,7 +37,7 @@ class ProdutoService (
             produto.valor = produtoDto.valor
             produtoRepository.save(produto)
         } catch (e: Exception) {
-            throw RuntimeException("Erro ao atualizar produto: ${e.message}", e)
+            throw RuntimeException("Erro ao adicionar produto: ${e.message}", e)
         }
     }
 

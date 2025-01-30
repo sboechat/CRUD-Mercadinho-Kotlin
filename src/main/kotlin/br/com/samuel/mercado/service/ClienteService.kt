@@ -44,7 +44,7 @@ class ClienteService(
             cliente.cpf = clienteDto.cpf
             clienteRepository.save(cliente)
         } catch (e: Exception) {
-            throw RuntimeException("Erro ao atualizar cliente: ${e.message}", e)
+            throw RuntimeException("Erro ao adicionar cliente: ${e.message}", e)
         }
     }
 
